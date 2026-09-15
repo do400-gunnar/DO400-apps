@@ -3,6 +3,7 @@
 This repository contains applications used in the Red Hat training DO400 -
 Red Hat DevOps Pipelines and Processes: CI/CD with Jenkins, Git, and Test Driven Development (TDD).
 
+
 ## Issues
 
 Should you find any issues with the course applications, or have any general
