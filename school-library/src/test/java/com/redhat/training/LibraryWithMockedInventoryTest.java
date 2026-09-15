@@ -23,5 +23,23 @@ public class LibraryWithMockedInventoryTest {
         library = new Library(inventory);
     }
 
-    // Add tests here...
+    @Test
+    public void checkOutWithdrawsFromInventoryWhenAvailable() throws BookNotAvailableException {
+        when(inventory.isBookAvailable("book1")).thenReturn(true);
+
+        library.checkOut("student1", "book1");
+
+        verify(inventory).withdraw("book1");
+    }
+
+    @Test
+    public void checkOutWithdrawsFromInventoryWhenNotAvailable() {
+        when(inventory.isBookAvailable("book1")).thenReturn(false);
+
+        try {
+            library.checkOut("student1", "book1");
+        }  catch (BookNotAvailableException e) {}
+
+        verify(inventory, times(0)).withdraw("book1");
+    }
 }
