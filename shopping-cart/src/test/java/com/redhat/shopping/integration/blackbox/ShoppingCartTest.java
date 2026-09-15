@@ -24,9 +24,9 @@ public class ShoppingCartTest {
         );
 
         given()
-        .contentType("application/json")
-        .body(productToAdd)
-        .put("/cart");
+            .contentType("application/json")
+            .body(productToAdd)
+            .put("/cart");
     }
 
     @BeforeEach
