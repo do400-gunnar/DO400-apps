@@ -1,0 +1,31 @@
+name: School Library Tests
+
+on:
+  push:
+    paths:
+      - 'school-library/**'
+      - '.github/workflows/school-library-test.yml'
+  pull_request:
+    paths:
+      - 'school-library/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java-version: ['11', '17', '24']
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ matrix.java-version }}
+          distribution: 'temurin'
+          cache: maven
+      
+      - name: Run Maven tests
+        run: mvn test
+        working-directory: ./school-library
