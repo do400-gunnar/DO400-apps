@@ -20,6 +20,11 @@ public class ShippingCalculatorTest {
     }
 
     @Test
+    public void testNameNA() throws RegionNotFoundException {
+        assertEquals("NA", Region.NA.name());
+    }
+
+    @Test
     public void testCalculateShippingArgumentNull() {
         assertThrows(RegionNotFoundException.class,
                 () -> calculator.costForRegion(null));
