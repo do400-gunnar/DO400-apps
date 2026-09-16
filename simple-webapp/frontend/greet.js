@@ -5,6 +5,7 @@ function greet(domInput, domElement) {
     });
 }
 
+
 function getGreeting(name) {
     const url = "http://localhost:3000?name=" + name
     return fetch(url)
