@@ -4,9 +4,9 @@ stages{
 stage('Deploy') {
 steps {
 sh '''
-'''
 oc project jfgprv-deploy-strategies
 oc start-build greeting-service --follow --wait
+'''
 }
 }
 }
