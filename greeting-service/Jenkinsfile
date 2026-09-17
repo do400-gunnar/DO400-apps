@@ -1,13 +1,13 @@
 pipeline{
-agent any
-stages{
-stage('Deploy') {
-steps {
-sh '''
-oc project jfgprv-deploy-strategies
-oc start-build greeting-service --follow --wait
-'''
-}
-}
-}
+  agent any
+    stages{
+      stage('Deploy') {
+        steps {
+        sh '''
+        oc project jfgprv-deploy-strategies
+        oc start-build greeting-service --follow --wait
+        '''
+        }
+    }
+  }
 }
