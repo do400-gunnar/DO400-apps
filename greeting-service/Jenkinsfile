@@ -5,7 +5,7 @@ stage('Deploy') {
 steps {
 sh '''
 '''
-oc project RHT_OCP4_DEV_USER-deploy-strategies
+oc project jfgprv-deploy-strategies
 oc start-build greeting-service --follow --wait
 }
 }
